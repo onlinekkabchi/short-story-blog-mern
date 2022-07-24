@@ -1,32 +1,37 @@
 import express from "express";
 import cors from "cors";
+import { MongoClient } from "mongodb";
 import { ConnectDB } from "./db/connect.js";
-import { CURSOR_FLAGS } from "mongodb";
+import { mongouri } from "./db/url.js";
 const app = express();
 const router = express.Router();
 const port = process.env.PORT || 3000;
+
+const client = new MongoClient(mongouri);
 
 app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    console.log("get started:>");
-    // console.log(req);
+    return;
 });
 
 app.get("/record", (req, res) => {
-    const movies = ConnectDB();
+    const movies = client.db("sample_mflix").collection("movies");
     const query = { runtime: { $lt: 150 } };
 
     const options = {
         sort: { title: 1 },
         projection: { _id: 0, title: 1, imdb: 1 },
     };
-
-    movies.findOne(query, function (err, result) {
-        if (err) throw err;
-        res.json(result);
-    });
+    movies
+        .find(query, options)
+        .limit(2)
+        .toArray(function (err, result) {
+            if (err) throw err;
+            console.dir(result);
+            res.send(result);
+        });
 });
 
 app.use((err, req, res, next) => {
