@@ -1,0 +1,27 @@
+body{
+    font-size: 15px;
+    background-color: teal;
+    color: aliceblue;
+    padding: 30px;
+    margin:0;
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+}
+.link{
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+    border: 1px solid white;
+    width: 80px;
+    text-decoration: none;
+}
+.movie_box{
+    width: 200px;
+    font-size: 12px;
+    border:1px solid white;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+}

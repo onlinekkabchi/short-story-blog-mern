@@ -26,7 +26,7 @@ app.get("/record", (req, res) => {
     };
     movies
         .find(query, options)
-        .limit(2)
+        .limit(5)
         .toArray(function (err, result) {
             if (err) throw err;
             console.dir(result);
