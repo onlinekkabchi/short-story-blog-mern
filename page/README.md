@@ -14,4 +14,4 @@
 
 -   _ERROR: ReactDOM.render is no longer supported in React 18. Use createRoot instead._ : [Updates to Client Rendering APIs](https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-client-rendering-apis)
 
--   _React Router&Link combination_ : [quick start guide](https://v5.reactrouter.com/web/guides/quick-start)
+-   _React Router&Link combination, from react-router-dom_ : [quick start guide](https://v5.reactrouter.com/web/guides/quick-start)
